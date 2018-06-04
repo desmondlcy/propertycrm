@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Input, Card, CardSection , Button , Spinner }  from '../common';
+import { Actions } from 'react-native-router-flux';
 //import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { Text , View , Image } from 'react-native';
 //import SplashScreen from 'react-native-splash-screen'
 import { emailChanged , passwordChanged, loginUser , loginUserToken } from '../../actions';
-import { Tile , Overlay , Header , SearchBar } from 'react-native-elements'
+import { Tile , Overlay , Header , SearchBar , SocialIcon } from 'react-native-elements'
 
 
 class LoginForm extends Component {
@@ -90,6 +91,10 @@ renderError() {
   };
 };
 
+onFBLoginPress() {
+  Actions.main({type : 'reset'});
+}
+
 render() {
   return(
     <Card style={{backgroundColor:'white'}}>
@@ -101,6 +106,14 @@ render() {
         caption="Some Caption Text"
       >
       </Tile>
+
+      <SocialIcon
+        title='Sign In With Facebook'
+        button
+        type='facebook'
+        onPress={this.onFBLoginPress.bind(this)}
+      />
+
 
       <Overlay 
       isVisible={this.state.overlayVisible}

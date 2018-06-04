@@ -8,7 +8,7 @@ import { Confirm }  from './common';
 
 class DrawerContent extends Component {
 
-  state = { popMessage: false };
+  state = { popMessage: true };
 
   onNoPress(){
     this.setState( {popMessage: false} );
