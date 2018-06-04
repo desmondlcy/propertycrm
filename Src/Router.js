@@ -5,7 +5,8 @@ import {
   Actions,
   Drawer,
   Stack,
-  renderLeftButton
+  renderLeftButton,
+  Lightbox
 } from 'react-native-router-flux';
 import { View } from 'react-native';
 import LoginForm from './Components/LoginScene/LoginForm';
@@ -29,33 +30,22 @@ return(
           drawerBackgroundColor='white'
         >
       <Scene key='root' navBar = {HeaderWithIcon} >
-      
-        <Scene key='auth'>
-          <Scene 
-              key='login' 
-              component={LoginForm} 
-              title='Welcome'
-              hideNavBar
-          />
-        </Scene>
-        
+          <Scene key='auth'>
+            <Scene 
+                key='login' 
+                component={LoginForm} 
+                title='Welcome'
+                hideNavBar
+            />
+          </Scene>
         <Scene key='main'>
-        <Drawer
-          hideNavBar
-          key="drawer"
-          contentComponent={DrawerContent}
-          drawerImage={MenuIcon50}
-          drawerWidth={200}
-          drawerPosition='left'
-          drawerBackgroundColor='white'
-        >
         <Scene
             key="landing"
             component={Landing}
             title={homeIcon}
             initial
+            hideNavBar
           />
-        </Drawer>
         </Scene>
       </Scene>
       </Drawer>

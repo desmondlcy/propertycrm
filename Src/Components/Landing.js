@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import { Icon , Button , List, ListItem ,  Header } from 'react-native-elements';
+import { Icon , Button , List, ListItem } from 'react-native-elements';
 import {
   ListView ,
   View ,
@@ -12,30 +11,27 @@ import {
   CardSection,
   Information
 }  from './common';
+
 class Landing extends Component {
 
   state = { popMessage: false };
 
   onButtonPress() {
-    Actions.countryList();
+    console.log//Actions.countryList();
   }
 
 
     render (){
       return (
         <Card>
-          <List>
-            {
-              list.map((item, i) => (
+              {list.map((item, i) => (
                 <ListItem
                   key={i}
                   title={item.title}
                   leftIcon={{name: item.icon}}
                   onPress= {this.onButtonPress.bind(this)}
                 />
-              ))
-            }
-          </List>
+              ))}
         </Card>
     );
   }
