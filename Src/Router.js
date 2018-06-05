@@ -10,6 +10,7 @@ import {
 } from 'react-native-router-flux';
 import { View } from 'react-native';
 import LoginForm from './Components/LoginScene/LoginForm';
+import LoginFormMain from './Components/LoginScene/LoginFormMain';
 import DrawerContent from './Components/DrawerContent';
 import MenuIcon from './Components/images/menuIcon.png';
 import MenuIcon50 from './Components/images/menuIcon50.png';
@@ -30,10 +31,10 @@ return(
           drawerBackgroundColor='white'
         >
       <Scene key='root' navBar = {HeaderWithIcon} >
-          <Scene key='auth'>
+          <Scene key='auth' hideNavBar>
             <Scene 
                 key='login' 
-                component={LoginForm} 
+                component={LoginFormMain} 
                 title='Welcome'
                 hideNavBar
             />

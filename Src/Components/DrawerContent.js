@@ -24,7 +24,7 @@ class DrawerContent extends Component {
       <Card style={{flex:1}}>
       <Image
         style={{backgroundColor: 'white', alignSelf: 'center', width: 100, height: 100, marginTop:30, marginBottom:30}}
-        source={require('./images/utipaylogo.gif')}
+        source={require('./images/open-house-logoa.jpg')}
       />
         </Card>
     );
