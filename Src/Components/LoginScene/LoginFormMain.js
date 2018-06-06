@@ -15,44 +15,46 @@ state = {overlayVisible: true};
 
 
 onFBLoginPress() {
-  Actions.main({type : 'reset'});
+  Actions.welcome({type : 'reset'});
 }
 
 render() {
   return(
-    <Card style={{backgroundColor:'white'}}>
-      
+    <View style={styles.containerStyle}>
       <Tile
         imageSrc={require('../images/open-house-logo.jpg')}
+        caption='test'
       >
       </Tile>
 
+      <View>
       <SocialIcon
-        title='Sign In With Facebook'
+        title='Continue With Facebook'
         button
         type='facebook'
         onPress={this.onFBLoginPress.bind(this)}
         fontStyle={styles.titleStyle}
       />
-      <Button
+      </View>
+
+      <View style={{ margin: 7}}>
+        <Button
         title="Sign In"
         titleStyle={styles.titleStyle}
         buttonStyle={styles.buttonStyle}
-        containerStyle={styles.buttoncontainerStyle}
+        //containerStyle={styles.buttoncontainerStyle}
       />
+      </View>
 
       <View style={styles.bottomstyle}>
-            <Text style={styles.termText}> I have read and agree to the
+            <Text style={styles.termText}> By Signing Up or Sign In you agree with our
               <Text>  </Text>
-              <Text style={{ textDecorationLine:'underline' }}>Terms of Service</Text>
-              <Text>  </Text>
-              &
-              <Text>  </Text>
-              <Text style={{ textDecorationLine:'underline' }}>Privacy Policy.</Text>
+              {'\n'}
+              <Text style={{ textDecorationLine:'underline' }}>Terms And Conditions</Text>
             </Text>
       </View>
 
-    </Card>
+    </View>
   );
 }
 }
@@ -68,12 +70,10 @@ const styles = {
     fontWeight: 'bold',
   },
   buttonStyle: {
-    //backgroundColor: "rgba(92, 99,216, 1)",
     backgroundColor: "rgba(255,0,0,0.5)",
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    //width:1000,
     height: 24 * 2 + 2,
     borderColor: "transparent",
     borderWidth: 0,
@@ -81,22 +81,30 @@ const styles = {
     paddingTop: 14,
     paddingBottom: 14
   },
+  containerStyle: {
+    marginTop: 10,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    backgroundColor:'white'
+  },
   buttoncontainerStyle: {
-    margin: 7,
+    //margin: 7,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 30,
-    marginTop: 20,
-    paddingTop: 10,
+    marginTop: 10,
     //paddingLeft: 1,
     //paddingRight: 1,
     },
     termText: {
       fontSize: 12,
       color:'#82837E',
-      marginLeft: 10
+      alignItems: 'center',
+      marginLeft: 10,
+      textAlign: 'center'
     },
     terms: {
       padding: 10,
@@ -108,7 +116,7 @@ const styles = {
       alignSelf: 'center',
       justifyContent:'flex-end',
       position: 'absolute',
-      bottom: 0
+      bottom: 10
     }
 }
 

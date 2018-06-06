@@ -16,6 +16,7 @@ import MenuIcon from './Components/images/menuIcon.png';
 import MenuIcon50 from './Components/images/menuIcon50.png';
 import { Icon , Header , SearchBar } from 'react-native-elements';
 import Landing from './Components/Landing';
+import Welcome from './Components/Welcome';
 import HeaderWithIcon from './HeaderWithIcon';
 const RouterComponent = () => {
 return(
@@ -39,7 +40,14 @@ return(
                 hideNavBar
             />
           </Scene>
-        <Scene key='main'>
+          <Scene key='welcome' hideNavBar>
+        <Scene
+            key="welcome"
+            component={Welcome}
+            hideNavBar
+          />
+        </Scene> 
+        <Scene key='main' hideNavBar={false}>
         <Scene
             key="landing"
             component={Landing}

@@ -1,6 +1,7 @@
+
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
-import { Icon , Button , List, ListItem , Overlay } from 'react-native-elements';
+import { Icon , Button , List, ListItem , Overlay , SocialIcon} from 'react-native-elements';
 import {
   ListView ,
   View ,
@@ -12,7 +13,7 @@ import {
   Information
 }  from './common';
 
-class Landing extends Component {
+class Welcome extends Component {
 
   state = { popMessage: false , overlayVisible: true };
 
@@ -24,15 +25,17 @@ class Landing extends Component {
     render (){
       return (
         <Card>
-              {list.map((item, i) => (
-                <ListItem
-                  key={i}
-                  title={item.title}
-                  leftIcon={{name: item.icon}}
-                  onPress= {this.onButtonPress.bind(this)}
-                />
-              ))}
 
+                 <Overlay 
+                isVisible={this.state.overlayVisible}
+                onBackdropPress={() => Actions.main({type: 'reset'})} 
+                overlayBackgroundColor="rgba(0,0,0,0.7)"
+                windowBackgroundColor="rgba(0,0,0,0.7)"
+                width="auto"
+                height="auto"
+                >
+                <Text> testing ! </Text>
+                </Overlay>
         </Card>
     );
   }
@@ -53,5 +56,5 @@ const list = [
 ]
 
 
-export default Landing;
+export default Welcome;
 //export default connect(mapStateToProps, { loginUserSuccess , loginUserSuccessToken , retrieveUtipayCountries }) (Landing);
