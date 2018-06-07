@@ -16,7 +16,7 @@ class HeaderWithIcon extends Component {
         <Header
         statusBarProps={{ barStyle: 'light-content' }}
         //backgroundColor = 'rgba(0,0,255,0.1)'
-        leftComponent={{ icon: 'menu', color: '#fff' }}
+        leftComponent={leftIcon}
         centerComponent={{topSearchBar}}
         rightComponent={rightIcon}
       />
@@ -36,7 +36,7 @@ const leftIcon = (
   <Icon
     name= 'menu'
     color= '#fff'
-    onPress={ () => Actions.auth({type : 'reset'})}
+    onPress={ () => Actions.drawerOpen()}
   />
 )
 
