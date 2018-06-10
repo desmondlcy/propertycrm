@@ -13,9 +13,8 @@ class HeaderWithIcon extends Component {
     render() {
 
     return (
-        <Header
+        <Header style={styles.containerStyle}
         statusBarProps={{ barStyle: 'light-content' }}
-        //backgroundColor = 'rgba(0,0,255,0.1)'
         leftComponent={leftIcon}
         centerComponent={{topSearchBar}}
         rightComponent={rightIcon}
@@ -41,22 +40,31 @@ const leftIcon = (
 )
 
   const topSearchBar = (
+    <View style={{backgroundColor: '#fff' , flexDirection: 'row',justifyContent: 'center',alignItems: 'stretch'}}> 
     <SearchBar
-    //lightTheme
-    //onChangeText={someMethod}
-    //onClearText={someMethod}
     clearIcon={{ color: 'red' }}
-    //searchIcon={false}
     size={50}
     icon={{ type: 'font-awesome', name: 'search' }}
     placeholder='Type Here...' 
-    //containerStyle={{alignSelf:'stretch', backgroundColor: 'rgba(0,0,255,0.1)' , opacity: 0.7}}
+    containerStyle={{alignSelf:'stretch', backgroundColor: 'rgba(0,0,255,0.1)' , opacity: 0.7}}
     round={true}
     underlineColorAndroid='light-blue'
     />
-    
+    </View>
   )
 
+const styles = {
+  containerStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+  },
+  searchbarStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'stretch'
+  }
+}
 
 
 export default HeaderWithIcon;
