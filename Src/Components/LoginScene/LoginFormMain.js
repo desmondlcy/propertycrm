@@ -24,9 +24,16 @@ render() {
       <Tile
         imageSrc={require('../images/open-house-logo.jpg')}
         caption='test'
+        //title={titleAD}
+        //titleStyle= {{alignSelf:'center' , justifyContent:'center'}}
       >
+      <View style={{alignSelf:'center' , justifyContent:'center'}}>
+        {titleAD}
+      </View>
+      <View style={{alignSelf:'center' , justifyContent:'center'}}>
+        {titleSub}
+      </View>
       </Tile>
-
       <View>
       <SocialIcon
         title='Continue With Facebook'
@@ -135,6 +142,45 @@ const topSearchBar = (
   round={true}
   underlineColorAndroid='light-blue'
   />
+  
+)
+
+const titleAD = (
+  <Text style={{
+    justifyContent:'center',
+    alignSelf:'center',
+    color:'red',
+    fontSize:35
+    }}>
+      Prop
+  <Text style={{ 
+    textDecorationLine:'underline', 
+    color:'red'
+    }}>
+      er
+  </Text>
+  ty
+  <Text> </Text>
+<Text style={{ 
+    fontWeight:'bold', 
+    color:'red'
+    }}>
+      CRM
+  </Text>
+
+  </Text>
+  
+)
+
+const titleSub = (
+  <Text style={{
+    justifyContent:'center',
+    alignSelf:'center',
+    color:'rgba(192,192,192,1)',
+    fontSize:25
+    }}>
+      Manage your property sales with ease
+  </Text>
   
 )
 
