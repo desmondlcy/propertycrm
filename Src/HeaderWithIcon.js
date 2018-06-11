@@ -1,89 +1,41 @@
 import React, {Component} from 'react';
-import { View, Image, Text } from 'react-native';
-import { Icon , Header , SearchBar } from 'react-native-elements';
+import { View, Image ,Platform, Dimensions} from 'react-native';
+//import { Icon , SearchBar } from 'react-native-elements';
 import { Drawer } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
+import { Left, Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
+
+const deviceHeight = Dimensions.get("window").height;  
 
 class HeaderWithIcon extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-    render() {
-
+  render() { 
     return (
-      <Header style={styles.containerStyle}
-          statusBarProps={{ barStyle: 'light-content' }}
-          leftComponent={leftIcon}
-          centerComponent={<SearchBar
-            clearIcon={{ color: 'red' }}
-            size={50}
-            icon={{ type: 'font-awesome', name: 'search' }}
-            placeholder='Type Here...' 
-            containerStyle={{alignSelf:'stretch', backgroundColor: 'rgba(0,0,255,0.1)' , opacity: 0.7}}
-            inputContainerStyle={{alignSelf:'stretch'}}
-            round={true}
-            underlineColorAndroid='light-blue'
-            />}
-          rightComponent={rightIcon}
-    />
+        <Header searchBar rounded>
+        
+          <Button transparent iconRight onPress={ () => Actions.drawerOpen()}>
+            <Icon name='menu' />
+          </Button>
+          
+          <Item style={{width:50,flex:1,justifyContent:'center',alignItems:'flex-start'}}>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+          </Item>
+          <Button transparent>
+          <Icon ios='ios-notifications' android="md-notifications"/>
+          </Button>
+        </Header>
     );
   }
 };
 
-const rightIcon = (
-  <Icon
-    name= 'home'
-    color= '#fff'
-    onPress={ () => Actions.auth({type : 'reset'})}
-  />
-)
-
-const leftIcon = (
-  <Icon
-    name= 'menu'
-    color= '#fff'
-    onPress={ () => Actions.drawerOpen()}
-  />
-)
-
-  const topSearchBar = (
-    <SearchBar
-    clearIcon={{ color: 'red' }}
-    size={50}
-    icon={{ type: 'font-awesome', name: 'search' }}
-    placeholder='Type Here...' 
-    containerStyle={{alignSelf:'stretch', backgroundColor: 'rgba(0,0,255,0.1)' , opacity: 0.7}}
-    round={true}
-    underlineColorAndroid='light-blue'
-    />
-  )
-
 const styles = {
-  containerStyle: {
-    flex: 1,
-    flexDirection: 'row',
-   // justifyContent: 'space-evenly'
-  },
-  searchbarStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'stretch'
-  },
-  searchbarConStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'stretch'
+  theme: {
+  flex: 1,
+  flexDirection: 'column',
+  justifyContent:'flex-start',
+  //height: Platform.OS === "ios" ? deviceHeight : deviceHeight - 20
   }
-}
-/*
-<Header style={styles.containerStyle}
-        statusBarProps={{ barStyle: 'light-content' }}
-        leftComponent={leftIcon}
-        centerComponent={topSearchBar}
-        rightComponent={rightIcon}
-      />
-*/
+};
+
 
 export default HeaderWithIcon;
