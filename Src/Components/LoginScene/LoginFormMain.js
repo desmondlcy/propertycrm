@@ -24,8 +24,6 @@ render() {
       <Tile
         imageSrc={require('../images/open-house-logo.jpg')}
         caption='test'
-        //title={titleAD}
-        //titleStyle= {{alignSelf:'center' , justifyContent:'center'}}
       >
       <View style={{alignSelf:'center' , justifyContent:'center'}}>
         {titleAD}
@@ -49,7 +47,14 @@ render() {
         title="Sign In"
         titleStyle={styles.titleStyle}
         buttonStyle={styles.buttonStyle}
-        //containerStyle={styles.buttoncontainerStyle}
+      />
+      </View>
+
+      <View style={{ margin: 7}}>
+        <Button
+        title="Sign Up"
+        titleStyle={styles.titleStyle}
+        buttonStyle={styles.buttonStyle}
       />
       </View>
 
@@ -126,24 +131,6 @@ const styles = {
       bottom: 10
     }
 }
-
-
-const topSearchBar = (
-  <SearchBar
-  //lightTheme
-  //onChangeText={someMethod}
-  //onClearText={someMethod}
-  clearIcon={{ color: 'red' }}
-  //searchIcon={false}
-  size={50}
-  icon={{ type: 'font-awesome', name: 'search' }}
-  placeholder='Type Here...' 
-  containerStyle={{alignSelf:'stretch', backgroundColor: 'rgba(0,0,255,0.1)' , opacity: 0.7}}
-  round={true}
-  underlineColorAndroid='light-blue'
-  />
-  
-)
 
 const titleAD = (
   <Text style={{
